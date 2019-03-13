@@ -11,7 +11,7 @@ prompt="question name ("
 prompt+=$cdir
 prompt+="):"
 echo $prompt
-read -rep $prompt PROJECT
+read -repi $prompt PROJECT
 echo PROJECT
 #bit u && sh -c "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/install.sh)"
 # yarn at end to initialize
