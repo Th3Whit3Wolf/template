@@ -8,7 +8,7 @@ cdir="${dirname%"${dirname##*[!/]}"}" # extglob-free multi-trailing-/ trim
 cdir="${cdir##*/}"
 echo $cdir
 prompt="question name ("
-prompt+=$result
+prompt+=$cdir
 prompt+="):"
 echo $prompt
 read -rep $prompt PROJECT
