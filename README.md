@@ -36,3 +36,5 @@ My template for web development with typescript, sass, gulp, and linting.
     ├── gulpfile.js
     ├── LICENSE (MIT)
     └── package.json
+
+### Start new project with this template
