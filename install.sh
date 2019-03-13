@@ -9,9 +9,9 @@ cdir="${cdir##*/}"
 echo $cdir
 prompt="question name ("
 prompt+=$cdir
-prompt+="):"
+prompt+="): "
 echo $prompt
-read -repi $prompt PROJECT
+read -p $prompt PROJECT
 echo PROJECT
 #bit u && sh -c "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/install.sh)"
 # yarn at end to initialize
