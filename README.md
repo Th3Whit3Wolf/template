@@ -38,3 +38,5 @@ My template for web development with typescript, sass, gulp, and linting.
     └── package.json
 
 ### Start new project with this template
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/install.sh)"`
