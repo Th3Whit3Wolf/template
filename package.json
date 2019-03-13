@@ -1,0 +1,74 @@
+{
+	"name": "template",
+	"version": "1.0.0",
+	"description": "My Web Development Template w/ Gulp, SASS, & Typescript.",
+	"main": "src/index.html",
+	"author": "David (https://github.com/TheWhiteWolf1337)",
+	"license": "MIT",
+	"devDependencies": {
+		"eslint": "^5.15.1",
+		"eslint-config-prettier": "^4.1.0",
+		"autoprefixer": "^9.4.10",
+		"gulp": "^4.0.0",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-cssnano": "^2.1.3",
+		"gulp-eslint": "^5.0.0",
+		"gulp-plumber": "^1.2.1",
+		"gulp-sass": "^4.0.2",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-typescript": "^5.0.1",
+		"gulp-uglify": "^3.0.2",
+		"node-sass": "^4.11.0",
+		"through2": "^3.0.1",
+		"prettier-stylelint": "^0.4.2",
+		"stylelint-config-idiomatic-order": "^6.2.0",
+		"tslint-config-prettier": "^1.18.0",
+		"tslint-microsoft-contrib": "^6.1.0",
+		"typescript": "^3.3.3333"
+	},
+	"scripts": {
+		"tslint": "tslint -c tslint.json app/**/*.ts"
+	},
+	"stylelint": {
+		"extends": [
+			"stylelint-config-idiomatic-order",
+			"./node_modules/prettier-stylelint/config.js"
+		],
+		"rules": {
+			"unit-whitelist": [
+				"rem",
+				"deg",
+				"vh",
+				"em",
+				"px",
+				"fr",
+				"%",
+				"s"
+			],
+			"string-quotes": "single"
+		},
+		"ignoreFiles": "./minified/css/main.css"
+	},
+	"eslint": {
+		"extends": [
+			"prettier",
+			"prettier/@typescript-eslint"
+		],
+		"plugins": [
+			"prettier"
+		],
+		"rules": {
+			"prettier/prettier": "error"
+		}
+	},
+	"prettier": {
+		"printWidth": 80,
+		"tabWidth": 4,
+		"useTabs": true,
+		"semi": false,
+		"singleQuote": true,
+		"trailingComma": "none",
+		"bracketSpacing": true,
+		"jsxBracketSameLine": false
+	}
+}
