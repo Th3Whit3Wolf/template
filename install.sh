@@ -3,7 +3,7 @@
 #
 set -e
 
-dirname="/path/to/somewhere//"
+dirname=$PWD
 result="${dirname%"${dirname##*[!/]}"}" # extglob-free multi-trailing-/ trim
 result="${result##*/}"
 echo $result
