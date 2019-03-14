@@ -39,4 +39,8 @@ My template for web development with typescript, sass, gulp, and linting.
 
 ### Start new project with this template
 
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/install.sh)"`
+```bash
+mkdir project_name #replace project_name with what you'd like to name your project
+cd project_name
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/install.sh)"
+```
