@@ -16,26 +16,23 @@ My template for web development with typescript, sass, gulp, and linting.
 
 ### Project Structure
 
+```sh
     .
-    ├── sass
-    │   └── sass files
+    ├── sass                # SASS files
     ├── src
-    │   ├── css
-    │   │   └── compiled css
-    │   ├── img
-    │   │   └── images
-    │   ├── js
-    │   │   └── compiled javascript
-    │   └── html files
+    │   ├── css             # Compiled CSS Files
+    │   ├── img             # Images go here
+    │   ├── js              # Compiled Javascript
+    │   └ html
     ├── ts
-    │   │
-    │   ├── tsconfig.json
-    │   ├── tslint.json
-    │   └── typescript files
-    ├── .gitignore
-    ├── gulpfile.js
-    ├── LICENSE (MIT)
-    └── package.json
+    │   ├── tsconfig.json   # TS Config
+    │   ├── tslint.json     # TS Lint
+    │   └ typescript
+    ├ .gitignore
+    ├ gulpfile.js
+    ├ LICENSE (MIT)
+    └ package.json
+```
 
 ### Start new project with this template
 
