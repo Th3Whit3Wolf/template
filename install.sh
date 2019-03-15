@@ -2,29 +2,37 @@
 
 set -e
 
-Projects[0]='autoprefixer'
-Projects[1]='eslint'
-Projects[2]='eslint-config-prettier'
-Projects[3]='gulp'
-Projects[4]='gulp-autoprefixer'
-Projects[5]='gulp-cssnano'
-Projects[6]='gulp-eslint'
-Projects[7]='gulp-plumber'
-Projects[8]='gulp-notify'
-Projects[9]='gulp-sass'
-Projects[10]='gulp-sourcemaps'
-Projects[11]='gulp-stylelint'
-Projects[12]='gulp-tslint'
-Projects[13]='gulp-typescript'
-Projects[14]='gulp-uglify'
-Projects[15]='node-sass'
-Projects[16]='through2'
-Projects[17]='prettier-stylelint'
-Projects[18]='stylelint-config-idiomatic-order'
-Projects[19]='tslint'
-Projects[20]='tslint-config-prettier'
-Projects[21]='tslint-microsoft-contrib'
-Projects[22]='typescript'
+Projects[0]='eslint'
+Projects[1]='eslint-config-prettier'
+Projects[2]='imagemin-giflossy'
+Projects[3]='imagemin-mozjpeg'
+Projects[4]='imagemin-pngquant'
+Projects[5]='imagemin-webp'
+Projects[6]='imagemin-zopfli'
+Projects[7]='prettier-stylelint'
+Projects[8]='stylelint-config-idiomatic-order'
+Projects[9]='tslint'
+Projects[10]='tslint-config-prettier'
+Projects[11]='tslint-microsoft-contrib'
+Projects[12]='typescript'
+
+Gulp[0]='gulp-cssnano'
+Gulp[1]='gulp-cache'
+Gulp[2]='gulp-imagemin'
+Gulp[3]='gulp-imagemin-pngquant'
+Gulp[4]='gulp-imagemin-mozjpeg'
+Gulp[5]='gulp-imagemin-zopfli'
+Gulp[6]='gulp-imagemin-giflossy'
+Gulp[7]='gulp-imagemin-webp'
+Gulp[8]='gulp-sass'
+Gulp[9]='gulp-htmlmin'
+Gulp[10]='gulp-terser'
+Gulp[11]='gulp-tslint'
+Gulp[12]='gulp-typescript'
+Gulp[13]='gulp-prettier'
+Gulp[14]='gulp-sass'
+Gulp[15]='gulp-ext-replace'
+Gulp[16]='gulp'
 
 yarn init
 
@@ -32,6 +40,12 @@ for project in "${Projects[@]}"
 do
     yard add -D $project
 done
+
+for gulp in "${Gulp[@]}"
+do
+    yard add -D $gulp
+done
+
 mkdir sass
 mkdir ts
 mkdir -p src/css

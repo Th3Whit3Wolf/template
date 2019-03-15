@@ -9,8 +9,9 @@
 		"eslint": "^5.15.1",
 		"eslint-config-prettier": "^4.1.0",
 		"gulp": "^4.0.0",
-		"gulp-butternut": "^1.0.0",
+		"gulp-cache": "^1.1.1",
 		"gulp-cssnano": "^2.1.3",
+		"gulp-ext-replace": "^0.3.0",
 		"gulp-htmlmin": "^5.0.1",
 		"gulp-imagemin": "^5.0.3",
 		"gulp-prettier": "^2.1.0",
@@ -18,6 +19,11 @@
 		"gulp-terser": "^1.1.7",
 		"gulp-tslint": "^8.1.4",
 		"gulp-typescript": "^5.0.1",
+		"imagemin-giflossy": "^5.1.10",
+		"imagemin-mozjpeg": "^8.0.0",
+		"imagemin-pngquant": "^7.0.0",
+		"imagemin-webp": "^5.0.0",
+		"imagemin-zopfli": "^6.0.0",
 		"prettier-stylelint": "^0.4.2",
 		"stylelint": "^9.10.1",
 		"stylelint-config-idiomatic-order": "^6.2.0",
@@ -47,7 +53,7 @@
 			],
 			"string-quotes": "single"
 		},
-		"ignoreFiles": "./minified/css/main.css"
+		"ignoreFiles": "./dist/css/main.css"
 	},
 	"eslint": {
 		"extends": [

@@ -1,12 +1,19 @@
 const gulp = require('gulp'),
 	cssnano = require('gulp-cssnano'),
+	cache = require('gulp-cache'),
 	imagemin = require('gulp-imagemin'),
+	imageminPngquant = require('imagemin-pngquant'),
+	imageminMozjpeg = require('imagemin-mozjpeg'),
+	imageminZopfli = require('imagemin-zopfli'),
+	imageminGiflossy = require('imagemin-giflossy'),
+	webp = require('imagemin-webp'),
 	htmlmin = require('gulp-htmlmin'),
 	terser = require('gulp-terser'),
 	tslint = require('gulp-tslint'),
 	ts = require('gulp-typescript'),
 	sass = require('gulp-sass'),
-	prettier = require('gulp-prettier')
+	prettier = require('gulp-prettier'),
+	extReplace = require('gulp-ext-replace')
 
 // Paths
 const src = {
@@ -66,13 +73,69 @@ gulp.task('mincss', function(cb) {
 		.on('end', cb)
 })
 
-// Optimize Images
-gulp.task('imageMin', function(cb) {
-	gulp.src(src.img + '*')
-		.pipe(imagemin())
+// Convert jpeg & png to webp
+gulp.task('webp', () =>
+	gulp
+		.src([src.img + '*.{png,jpg}'])
+		.pipe(
+			imagemin([
+				webp({
+					quality: 60
+				})
+			])
+		)
+		.pipe(extReplace('.webp'))
 		.pipe(gulp.dest(dist.img))
-		.on('end', cb)
-})
+)
+
+//compress all images
+gulp.task('imageMin', () =>
+	gulp
+		.src([src.img + '*.{gif,png,jpg,svg}'])
+		.pipe(
+			cache(
+				imagemin([
+					//png
+					imageminPngquant({
+						speed: 1,
+						quality: [0.7, 0.8] //lossy settings
+					}),
+					imageminZopfli({
+						more: true,
+						iterations: 50 // very slow but more effective
+					}),
+					//gif
+					// imagemin.gifsicle({
+					//     interlaced: true,
+					//     optimizationLevel: 3
+					// }),
+					//gif very light lossy, use only one of gifsicle or Giflossy
+					imageminGiflossy({
+						optimizationLevel: 3,
+						optimize: 3, //keep-empty: Preserve empty transparent frames
+						lossy: 2
+					}),
+					//svg
+					imagemin.svgo({
+						plugins: [
+							{
+								removeViewBox: false
+							}
+						]
+					}),
+					//jpg lossless
+					imagemin.jpegtran({
+						progressive: true
+					}),
+					//jpg very light lossy, use vs jpegtran
+					imageminMozjpeg({
+						quality: 85
+					})
+				])
+			)
+		)
+		.pipe(gulp.dest(dist.img))
+)
 
 // Minify JS
 gulp.task('minjs', function(cb) {
@@ -161,7 +224,7 @@ gulp.task('tslint', () =>
 gulp.task(
 	'default',
 	gulp.series(
-		gulp.parallel('copyHtml', 'imageMin', 'ts', 'sass'),
+		gulp.parallel('copyHtml', 'imageMin', 'webp', 'ts', 'sass'),
 		'message1',
 		gulp.parallel('minjs', 'mincss'),
 		'message2'
@@ -170,6 +233,7 @@ gulp.task(
 
 gulp.task('watch', function() {
 	gulp.watch(src.ts + '*.ts', gulp.series('tslint', 'ts', 'minjs'))
-	gulp.watch(src.img + '*', gulp.series('imageMin'))
+	gulp.watch(src.img + '*.{png,jpg}', gulp.parallel('imageMin', 'webp'))
+	gulp.watch(src.img + '*.{gif,svg}', gulp.series('imageMin'))
 	gulp.watch(src.sass + '*.scss', gulp.series('sass', 'mincss'))
 })
