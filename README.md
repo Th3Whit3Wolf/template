@@ -4,11 +4,12 @@ My template for web development with typescript, sass, gulp, and linting.
 
 ### Features
 
--   Typescript in own folder
+-   Typescript, SASS, CSS, Javascript, and images are in their own folder
 -   Tsconfig and Tslint in Typescript folder
--   Sass in own folder
 -   Sass gets compiled to src/css
 -   Typescript gets compiled to src/js
+-   All distributed files get minimized
+-   Javascript files in src still get formatted
 -   Linting:
     -   Typescript: Tslint
     -   Javascript: Eslint
@@ -18,16 +19,20 @@ My template for web development with typescript, sass, gulp, and linting.
 
 ```sh
     .
-    ├── sass                # SASS files
-    ├── src
-    │   ├── css             # Compiled CSS Files
-    │   ├── img             # Images go here
-    │   ├── js              # Compiled Javascript
+    ├── src                     # These are you source files that you will work with
+    │   ├── css                 # Compiled CSS Files
+    │   ├── img                 # Images Go Here
+    │   ├── js                  # Compiled Javascript
+    │   ├── sass                # Sass Files Go Here
+    │   ├── ts                  # Typescript Files Go Here
+    │   │   ├── tsconfig.json   # TS Config
+    │   │   ├── tslint.json     # TS Lint
+    │   │   └ typescript
     │   └ html
-    ├── ts
-    │   ├── tsconfig.json   # TS Config
-    │   ├── tslint.json     # TS Lint
-    │   └ typescript
+    ├── dist                    # These are the minimized files you want to distribute
+    │   ├── css                 # Minimized CSS Files
+    │   ├── img                 # Minimized Images Go Here
+    │   └── js                  # Minimized Javascript
     ├ .gitignore
     ├ gulpfile.js
     ├ LICENSE (MIT)

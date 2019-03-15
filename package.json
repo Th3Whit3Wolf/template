@@ -8,26 +8,26 @@
 	"devDependencies": {
 		"eslint": "^5.15.1",
 		"eslint-config-prettier": "^4.1.0",
-		"autoprefixer": "^9.4.10",
 		"gulp": "^4.0.0",
-		"gulp-autoprefixer": "^6.0.0",
+		"gulp-butternut": "^1.0.0",
 		"gulp-cssnano": "^2.1.3",
-		"gulp-eslint": "^5.0.0",
-		"gulp-plumber": "^1.2.1",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-imagemin": "^5.0.3",
+		"gulp-prettier": "^2.1.0",
 		"gulp-sass": "^4.0.2",
-		"gulp-sourcemaps": "^2.6.5",
+		"gulp-terser": "^1.1.7",
+		"gulp-tslint": "^8.1.4",
 		"gulp-typescript": "^5.0.1",
-		"gulp-uglify": "^3.0.2",
-		"node-sass": "^4.11.0",
-		"through2": "^3.0.1",
 		"prettier-stylelint": "^0.4.2",
+		"stylelint": "^9.10.1",
 		"stylelint-config-idiomatic-order": "^6.2.0",
+		"tslint": "^5.14.0",
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-microsoft-contrib": "^6.1.0",
 		"typescript": "^3.3.3333"
 	},
 	"scripts": {
-		"tslint": "tslint -c tslint.json app/**/*.ts"
+		"tslint": "tslint -c src/ts/tslint.json src/ts/*.ts"
 	},
 	"stylelint": {
 		"extends": [
