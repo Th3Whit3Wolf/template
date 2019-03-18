@@ -9,9 +9,10 @@ My template for web development with typescript, sass, gulp, and linting.
 -   Sass gets compiled to src/css
 -   Typescript gets compiled to src/js
 -   All distributed files get minimized
--   High Quality Image compression
+-   Highest Quality Image compression
 -   Webp Image generation
 -   Javascript files in src still get formatted
+-   Purify CSS to remove unused CSS
 -   Linting:
     -   Typescript: Tslint
     -   Javascript: Eslint
@@ -23,18 +24,23 @@ My template for web development with typescript, sass, gulp, and linting.
     .
     ├── src                     # These are you source files that you will work with
     │   ├── css                 # Compiled CSS Files
+    │   ├── fonts               # For ttf, otf, woff, & woff2
     │   ├── img                 # Images Go Here
     │   ├── js                  # Compiled Javascript
     │   ├── sass                # Sass Files Go Here
     │   ├── ts                  # Typescript Files Go Here
-    │   │   ├── tsconfig.json   # TS Config
-    │   │   ├── tslint.json     # TS Lint
+    │   │   ├─ tsconfig.json    # TS Config
+    │   │   ├─ tslint.json      # TS Lint
     │   │   └ typescript
-    │   └ html
+    │   ├ html
+    │   └ sitemap
     ├── dist                    # These are the minimized files you want to distribute
     │   ├── css                 # Minimized CSS Files
+    │   ├── fonts               # For ttf, otf, woff, & woff2
     │   ├── img                 # Minimized Images Go Here
-    │   └── js                  # Minimized Javascript
+    │   ├── js                  # Minimized Javascript
+    │   ├ html
+    │   └ sitemap
     ├ .gitignore
     ├ gulpfile.js
     └ package.json
