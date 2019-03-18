@@ -1,9 +1,5 @@
 {
-	"extends": [
-		"tslint:recommended",
-		"tslint-config-prettier",
-		"tslint-microsoft-contrib/recommended"
-	],
+	"extends": ["tslint:latest", "tslint-config-prettier"],
 	"linterOptions": {
 		"exclude": ["**/test/**"]
 	},
@@ -222,7 +218,7 @@
 		"encoding": true,
 		"eofline": true,
 		"import-spacing": true,
-		"indent": [true, "spaces"],
+		"indent": [true, "tabs"],
 		"linebreak-style": false,
 		"newline-before-return": false,
 		"no-consecutive-blank-lines": true,
@@ -240,7 +236,6 @@
 			"check-whitespace"
 		],
 		"quotemark": [true, "single"],
-		"semicolon": [true, "always"],
 		"space-within-parens": true,
 		"trailing-comma": false, // forcing trailing commas for multi-line
 		// lists results in lists that are easier to reorder and version control diffs that are more clear.
