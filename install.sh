@@ -39,12 +39,12 @@ if yarn -v /dev/null 2>&1; then
 
     for project in "${Projects[@]}"
     do
-        yard add $project --save-dev
+        yarn add $project --save-dev
     done
 
     for gulp in "${Gulp[@]}"
     do
-        yard add $gulp --save-dev
+        yarn add $gulp --save-dev
     done
 
     mkdir sass
