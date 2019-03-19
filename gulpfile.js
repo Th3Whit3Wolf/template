@@ -57,7 +57,7 @@ gulp.task('connect', function() {
 	return emitter
 })
 
-gulp.task('disconnect', function(cb) {
+gulp.task('disconnect', function() {
 	const emitter = new EventEmitter()
 
 	connect.serverClose()
@@ -371,19 +371,18 @@ gulp.task('full', function(cb) {
 	)
 })
 
-gulp.task('watch', function(done) {
+gulp.task('watch', function() {
 	gulp.watch(
 		src.ts + '*.ts',
 		gulp.parallel('tslint', 'ts', 'minjs', 'prettyJs')
 	)
 	gulp.watch(src.img + '*', gulp.parallel('image', 'webp'))
 	gulp.watch(src.sass + '*.scss', gulp.series('sass', 'mincss'))
-	done
 })
 
 // Notification Messages
 gulp.task('hw', function() {
-	return new Promise(function(resolve, reject) {
+	return new Promise(function(resolve) {
 		resolve(console.log('Hello World'))
 	})
 })
