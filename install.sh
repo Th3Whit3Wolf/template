@@ -35,6 +35,7 @@ Gulp[17]='gulp-prettier'
 Gulp[18]='gulp-webp'
 
 if yarn -v /dev/null 2>&1; then
+
     yarn init
 
     for project in "${Projects[@]}"
