@@ -41,13 +41,15 @@ if yarn -v /dev/null 2>&1; then
 
     for project in "${Projects[@]}"
     do
-        yarn add $project --save-dev
+        list=$list" $project"
     done
 
     for gulp in "${Gulp[@]}"
     do
-        yarn add $gulp --save-dev
+        list=$list" $gulp"
     done
+
+	yarn add $list --save-dev
 
     mkdir sass
     mkdir ts
