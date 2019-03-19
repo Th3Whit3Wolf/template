@@ -37,7 +37,7 @@ Gulp[18]='gulp-webp'
 
 if yarn -v /dev/null 2>&1; then
 
-    yarn init
+    yarn init -y
 
     for project in "${Projects[@]}"
     do
