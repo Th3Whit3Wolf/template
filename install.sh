@@ -8,11 +8,12 @@ Projects[2]='eslint-plugin-prettier'
 Projects[3]='eslint-config-prettier'
 Projects[4]='events'
 Projects[5]='prettier-stylelint'
-Projects[6]='stylelint-config-idiomatic-order'
-Projects[7]='tslint'
-Projects[8]='tslint-config-prettier'
-Projects[9]='tslint-plugin-prettier'
-Projects[10]='typescript'
+Projects[6]='stylelint'
+Projects[7]='stylelint-config-idiomatic-order'
+Projects[8]='tslint'
+Projects[9]='tslint-config-prettier'
+Projects[10]='tslint-plugin-prettier'
+Projects[11]='typescript'
 
 Gulp[0]='gulp'
 Gulp[1]='gulp-connect'
@@ -87,6 +88,7 @@ BADLINESCOUNT=1
 ORIGINALFILE=$PWD/package.json
 dd if=${ORIGINALFILE} of=${ORIGINALFILE}.tmp status=none bs=1 count=$(printf "$(stat --format=%s ${ORIGINALFILE}) - $(tail -n${BADLINESCOUNT} ${ORIGINALFILE} | wc -c)\n" | bc )
 /bin/mv -f ${ORIGINALFILE}.tmp ${ORIGINALFILE}
+sed '${s/$/,/}' $PWD/package.json
 echo '"scripts": {
 		"tslint": "tslint -c src/ts/tslint.json src/ts/*.ts"
 	},
