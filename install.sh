@@ -34,7 +34,7 @@ Gulp[16]='gulp-typescript'
 Gulp[17]='gulp-prettier'
 Gulp[18]='gulp-webp'
 
-if [ -x "$(yarn)" ]; then
+if ! [ -x "$(yarn)" ]; then
     yarn init
 
     for project in "${Projects[@]}"
@@ -56,7 +56,7 @@ if [ -x "$(yarn)" ]; then
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/gulpfile.js)" > gulpfile.js
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/ts/tsconfig.json)" > ts/tsconfig.json
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/ts/tslint.json)" > ts/tslint.json
-elif [ -x "$(npm)" ]; then
+elif ! [ -x "$(npm)" ]; then
     npm init
 
     for project in "${Projects[@]}"
