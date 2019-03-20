@@ -90,4 +90,4 @@ BADLINESCOUNT=1
 ORIGINALFILE=$PWD/package.json
 dd if=${ORIGINALFILE} of=${ORIGINALFILE}.tmp status=none bs=1 count=$(printf "$(stat --format=%s ${ORIGINALFILE}) - $(tail -n${BADLINESCOUNT} ${ORIGINALFILE} | wc -c)\n" | bc )
 /bin/mv -f ${ORIGINALFILE}.tmp ${ORIGINALFILE}
-sed '${s/$/,/}' $PWD/package.json > $PWD/package.json
+#sed '${s/$/,/}' $PWD/package.json > $PWD/package.json
