@@ -50,47 +50,38 @@ if yarn -v /dev/null 2>&1; then
     done
 
 	yarn add $list --save-dev
-
-    mkdir sass
-    mkdir ts
-    mkdir -p src/css
-    mkdir src/img
-    mkdir src/js
-    echo "node_modules" > .gitignore
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/gulpfile.js)" > gulpfile.js
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/ts/tsconfig.json)" > ts/tsconfig.json
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/ts/tslint.json)" > ts/tslint.json
 elif npm -v /dev/null 2>&1; then
     npm init
 
     for project in "${Projects[@]}"
     do
-        npm install -D $project
+        list=$list" $project"
     done
 
     for gulp in "${Gulp[@]}"
     do
-        npm install -D $gulp
+        list=$list" $gulp"
     done
 
-    mkdir -p src/sass
+	npm install $list --save-dev
+else
+    echo "Npm or yarn are required to utilize this template and to use javascript."
+fi
+
+mkdir -p src/sass
     mkdir src/css
     mkdir src/img
     mkdir src/js
 	mkdir src/ts
 	touch src/ts/tsconfig.json
 	touch src/ts/tslint.json
-
     echo "node_modules" > .gitignore
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/gulpfile.js)" > gulpfile.js
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tsconfig.json)" > src/ts/tsconfig.json
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tslint.json)" > src/ts/tslint.json
-else
-    echo "Npm or yarn are required to utilize this template and to use javascript."
-fi
 
 BADLINESCOUNT=1
 ORIGINALFILE=$PWD/package.json
 dd if=${ORIGINALFILE} of=${ORIGINALFILE}.tmp status=none bs=1 count=$(printf "$(stat --format=%s ${ORIGINALFILE}) - $(tail -n${BADLINESCOUNT} ${ORIGINALFILE} | wc -c)\n" | bc )
+sed '${s/$/,/}' ${ORIGINALFILE} > ${ORIGINALFILE}.tmp
 /bin/mv -f ${ORIGINALFILE}.tmp ${ORIGINALFILE}
-#sed '${s/$/,/}' $PWD/package.json > $PWD/package.json
