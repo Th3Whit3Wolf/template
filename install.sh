@@ -50,6 +50,7 @@ if yarn -v /dev/null 2>&1; then
     done
 
 	yarn add $list --save-dev
+
 elif npm -v /dev/null 2>&1; then
     npm init
 
@@ -64,6 +65,7 @@ elif npm -v /dev/null 2>&1; then
     done
 
 	npm install $list --save-dev
+
 else
     echo "Npm or yarn are required to utilize this template and to use javascript."
 fi
@@ -83,8 +85,9 @@ echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/m
 BADLINESCOUNT=1
 ORIGINALFILE=$PWD/package.json
 dd if=${ORIGINALFILE} of=${ORIGINALFILE}.tmp status=none bs=1 count=$(printf "$(stat --format=%s ${ORIGINALFILE}) - $(tail -n${BADLINESCOUNT} ${ORIGINALFILE} | wc -c)\n" | bc )
-sed '${s/$/,/}' ${ORIGINALFILE} > ${ORIGINALFILE}.tmp
-/bin/mv -f ${ORIGINALFILE}.tmp ${ORIGINALFILE}
+sed '${s/$/,/}' ${ORIGINALFILE}.tmp > ${ORIGINALFILE}.tmp.tmp
+rm ${ORIGINALFILE}.tmp -y
+/bin/mv -f ${ORIGINALFILE}.tmp.tmp ${ORIGINALFILE}
 cat >> package.json <<EOL
 	"scripts": {
 		"tslint": "tslint -c src/ts/tslint.json src/ts/*.ts"
