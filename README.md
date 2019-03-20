@@ -65,9 +65,9 @@ npm completes in just over 2 minutes
 
 ### Recomendations
 
-This template runs init -y for yarn and npm to make the initiliaztion faster and to remove any unnecessary user input
+This template runs init -y for yarn and npm to make the initiliaztion faster and to remove any unnecessary user input.
 
-To make it more convenient for you I recomend running
+To make it more convenient for you I recomend running:
 
 ````bash
 npm config set init.author.name "You Name"
@@ -75,3 +75,5 @@ npm config set init.author.email "Email you'd like people to contact you at"
 npm config set init.author.url "url for your app or site"
 npm config set init.license LICENSE-YOU-WILL-MOST-WANT```
 ````
+
+This will set the default setting for npm & yarn init
