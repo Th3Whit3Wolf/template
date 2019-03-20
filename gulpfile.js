@@ -3,7 +3,6 @@ const gulp = require('gulp'),
 	image = require('gulp-image'),
 	webp = require('gulp-webp'),
 	htmlmin = require('gulp-htmlmin'),
-	terser = require('gulp-terser'),
 	tslint = require('gulp-tslint'),
 	ts = require('gulp-typescript'),
 	sass = require('gulp-sass'),
@@ -17,7 +16,8 @@ const gulp = require('gulp'),
 	EventEmitter = require('events'),
 	purify = require('gulp-purifycss'),
 	autoprefixer = require('autoprefixer'),
-	postcss = require('gulp-postcss')
+	postcss = require('gulp-postcss'),
+	closureCompiler = require('google-closure-compiler').gulp()
 
 // Paths
 const src = {
@@ -242,45 +242,25 @@ gulp.task('sass', function(cb) {
 })
 
 // Minify JS
-gulp.task('minjs', function(cb) {
-	gulp.src(src.js + '*.js')
+gulp.task('minjs', function() {
+	return gulp
+		.src(src.js + '**/*.js', { base: './' })
 		.pipe(
-			terser({
-				// see https://github.com/terser-js/terser#minify-options for options
-				parse: {
-					// parse options
+			closureCompiler(
+				{
+					compilation_level: 'ADVANCED',
+					warning_level: 'VERBOSE',
+					language_in: 'ECMASCRIPT6_STRICT',
+					language_out: 'ECMASCRIPT6_STRICT',
+					output_wrapper: '(function(){\n%output%\n}).call(this)',
+					js_output_file: 'main.js'
 				},
-				compress: {
-					// compress options
-					ecma: 6
-				},
-				mangle: {
-					// mangle options
-
-					properties: {
-						// mangle property options
-					}
-				},
-				output: {
-					// output options
-					ecma: 6
-				},
-				sourceMap: {
-					// source map options
-				},
-				ecma: 8, // specify one of: 5, 6, 7 or 8
-				keep_classnames: true,
-				keep_fnames: true,
-				ie8: false,
-				module: false,
-				nameCache: null, // or specify a name cache object
-				safari10: false,
-				toplevel: false,
-				warnings: false
-			})
+				{
+					platform: ['native', 'java', 'javascript']
+				}
+			)
 		)
 		.pipe(gulp.dest(dist.js))
-		.on('end', cb)
 })
 
 // Make main.js prettier to look at
@@ -378,11 +358,4 @@ gulp.task('watch', function() {
 	)
 	gulp.watch(src.img + '*', gulp.parallel('image', 'webp'))
 	gulp.watch(src.sass + '*.scss', gulp.series('sass', 'mincss'))
-})
-
-// Notification Messages
-gulp.task('hw', function() {
-	return new Promise(function(resolve) {
-		resolve(console.log('Hello World'))
-	})
 })

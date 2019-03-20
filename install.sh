@@ -7,13 +7,15 @@ Projects[1]='eslint'
 Projects[2]='eslint-plugin-prettier'
 Projects[3]='eslint-config-prettier'
 Projects[4]='events'
-Projects[5]='prettier-stylelint'
-Projects[6]='stylelint'
-Projects[7]='stylelint-config-idiomatic-order'
-Projects[8]='tslint'
-Projects[9]='tslint-config-prettier'
-Projects[10]='tslint-plugin-prettier'
-Projects[11]='typescript'
+Projects[5]='google-closure-compiler'
+Projects[6]='prettier'
+Projects[7]='prettier-stylelint'
+Projects[8]='stylelint'
+Projects[9]='stylelint-config-idiomatic-order'
+Projects[10]='tslint'
+Projects[11]='tslint-config-prettier'
+Projects[12]='tslint-plugin-prettier'
+Projects[13]='typescript'
 
 Gulp[0]='gulp'
 Gulp[1]='gulp-connect'
@@ -29,11 +31,9 @@ Gulp[10]='gulp-sass'
 Gulp[11]='gulp-sitemap'
 Gulp[12]='gulp-string-replace'
 Gulp[13]='gulp-stylelint'
-Gulp[14]='gulp-terser'
-Gulp[15]='gulp-tslint'
-Gulp[16]='gulp-typescript'
-Gulp[17]='gulp-prettier'
-Gulp[18]='gulp-webp'
+Gulp[14]='gulp-tslint'
+Gulp[15]='gulp-typescript'
+Gulp[17]='gulp-webp'
 
 if yarn -v /dev/null 2>&1; then
 
@@ -91,7 +91,9 @@ ORIGINALFILE=$PWD/package.json
 dd if=${ORIGINALFILE} of=${ORIGINALFILE}.tmp status=none bs=1 count=$(printf "$(stat --format=%s ${ORIGINALFILE}) - $(tail -n${BADLINESCOUNT} ${ORIGINALFILE} | wc -c)\n" | bc )
 /bin/mv -f ${ORIGINALFILE}.tmp ${ORIGINALFILE}
 sed '${s/$/,/}' $PWD/package.json > $PWD/package.json
-echo '"scripts": {
+sleep 1
+cat >> $PWD/package.json <<EOL
+"scripts": {
 		"tslint": "tslint -c src/ts/tslint.json src/ts/*.ts"
 	},
 	"stylelint": {
@@ -419,4 +421,5 @@ echo '"scripts": {
 		"bracketSpacing": true,
 		"jsxBracketSameLine": false
 	}
-}' >> package.json
+}
+EOL
