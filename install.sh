@@ -52,7 +52,7 @@ if yarn -v /dev/null 2>&1; then
 	yarn add $list --save-dev
 
 elif npm -v /dev/null 2>&1; then
-    npm init
+    npm init -y
 
     for project in "${Projects[@]}"
     do

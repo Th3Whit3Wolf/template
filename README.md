@@ -53,3 +53,7 @@ mkdir project_name #replace project_name with what you'd like to name your proje
 cd project_name
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/install.sh)"
 ```
+
+### Prequisites
+
+yarn or npm must be install to install node packages
