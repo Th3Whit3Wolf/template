@@ -85,8 +85,8 @@ echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/m
 BADLINESCOUNT=1
 ORIGINALFILE=$PWD/package.json
 dd if=${ORIGINALFILE} of=${ORIGINALFILE}.tmp status=none bs=1 count=$(printf "$(stat --format=%s ${ORIGINALFILE}) - $(tail -n${BADLINESCOUNT} ${ORIGINALFILE} | wc -c)\n" | bc )
-sed '${s/$/,/}' ${ORIGINALFILE}.tmp > ${ORIGINALFILE}.tmp.tmp
-rm ${ORIGINALFILE}.tmp -y
+sed '${s/$/,/}' ${ORIGINALFILE}.tmp > ${ORIGINALFILE}.tmp
+rm -rf ${ORIGINALFILE}.tmp
 /bin/mv -f ${ORIGINALFILE}.tmp.tmp ${ORIGINALFILE}
 cat >> package.json <<EOL
 	"scripts": {
