@@ -78,10 +78,12 @@ elif npm -v /dev/null 2>&1; then
     mkdir -p src/css
     mkdir src/img
     mkdir src/js
+	mkdir src/ts
+
     echo "node_modules" > .gitignore
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/gulpfile.js)" > gulpfile.js
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tsconfig.json)" > ts/tsconfig.json
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tslint.json)" > ts/tslint.json
+    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tsconfig.json)" > src/ts/tsconfig.json
+    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tslint.json)" > src/ts/tslint.json
 else
     echo "Npm or yarn are required to utilize this template and to use javascript."
 fi
