@@ -73,9 +73,8 @@ elif npm -v /dev/null 2>&1; then
         npm install -D $gulp
     done
 
-    mkdir sass
-    mkdir ts
-    mkdir -p src/css
+    mkdir -p src/sass
+    mkdir src/css
     mkdir src/img
     mkdir src/js
 	mkdir src/ts
