@@ -78,6 +78,8 @@ elif npm -v /dev/null 2>&1; then
     mkdir src/img
     mkdir src/js
 	mkdir src/ts
+	touch src/ts/tsconfig.json
+	touch src/ts/tslint.json
 
     echo "node_modules" > .gitignore
     echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/gulpfile.js)" > gulpfile.js
