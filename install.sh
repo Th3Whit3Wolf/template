@@ -35,6 +35,8 @@ Gulp[14]='gulp-tslint'
 Gulp[15]='gulp-typescript'
 Gulp[17]='gulp-webp'
 
+yarn init -y
+
 BADLINESCOUNT=1
 ORIGINALFILE=$PWD/package.json
 dd if=${ORIGINALFILE} of=${ORIGINALFILE}.tmp status=none bs=1 count=$(printf "$(stat --format=%s ${ORIGINALFILE}) - $(tail -n${BADLINESCOUNT} ${ORIGINALFILE} | wc -c)\n" | bc )
