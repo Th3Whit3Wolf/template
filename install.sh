@@ -69,16 +69,16 @@ else
 fi
 
 mkdir -p src/sass
-    mkdir src/css
-    mkdir src/img
-    mkdir src/js
-	mkdir src/ts
-	touch src/ts/tsconfig.json
-	touch src/ts/tslint.json
-    echo "node_modules" > .gitignore
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/gulpfile.js)" > gulpfile.js
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tsconfig.json)" > src/ts/tsconfig.json
-    echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tslint.json)" > src/ts/tslint.json
+mkdir src/css
+mkdir src/img
+mkdir src/js
+mkdir src/ts
+touch src/ts/tsconfig.json
+touch src/ts/tslint.json
+echo "node_modules" > .gitignore
+echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/gulpfile.js)" > gulpfile.js
+echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tsconfig.json)" > src/ts/tsconfig.json
+echo "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/src/ts/tslint.json)" > src/ts/tslint.json
 
 BADLINESCOUNT=1
 ORIGINALFILE=$PWD/package.json
