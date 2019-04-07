@@ -19,7 +19,7 @@ My template for web development with typescript, sass, gulp, and linting.
     -   SASS/LESS/CSS: Stylelint
 
 ### Project Structure
-
+f
 ```sh
     .
     ├── src                     # These are you source files that you will work with
@@ -51,7 +51,7 @@ My template for web development with typescript, sass, gulp, and linting.
 ```bash
 mkdir project_name #replace project_name with what you'd like to name your project
 cd project_name
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/TheWhiteWolf1337/template/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Th3Whit3Wolf/template/master/install.sh)"
 ```
 
 ### Prequisites
