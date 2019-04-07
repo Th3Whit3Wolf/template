@@ -19,7 +19,6 @@ My template for web development with typescript, sass, gulp, and linting.
     -   SASS/LESS/CSS: Stylelint
 
 ### Project Structure
-f
 ```sh
     .
     ├── src                     # These are you source files that you will work with
