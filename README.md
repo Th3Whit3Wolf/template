@@ -50,7 +50,7 @@ My template for web development with typescript, sass, gulp, and linting.
 ```bash
 mkdir project_name #replace project_name with what you'd like to name your project
 cd project_name
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/Th3Whit3Wolf/template/master/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Th3Whit3Wolf/template/master/install.sh)"
 ```
 
 ### Prequisites
